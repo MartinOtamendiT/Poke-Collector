@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver todos</title>
+    <link href="{{ url_for('static', path='showAll_styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='img/pokeball_icon.png') }}" rel="icon">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+</head>
+<body>
+    {% if pokemones == [] %}
+        <p>No hay Pokémon capturados</p>
+    {% else %}
+        {% for pokemon in pokemones %}  
+            <form action="/pokemon/{{ pokemon.id }}" method="get" id="formGetPokemon">
+                <h1>{{pokemon.name}}</h1>
+                <p value={{pokemon.id}}>{{pokemon.id}}</p>
+                <input type="hidden" name="pokemon_id " id="pokemon_id " value={{pokemon.id}}>
+                <button type="submit">Ver Pokémon</button>
+            </form>
+        {% endfor %}
+    {% endif %}
+    
+    <button id="Back", onclick=window.location.href='/';>Regresar a menú principal</button>
+    <footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+               document.getElementById("formGetPokemon").addEventListener("submit", function (e) {
+                  var myForm = document.getElementById('formGetPokemon');
+                  var pokemon_id = new URLSearchParams(new FormData(myForm)).toString();
+                  myForm.action = '/pokemon/' + pokemon_id;
+               });
+            });
+        </script>
+    </footer>
+</body>
+</html>

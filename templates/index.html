@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poké-colección</title>
+    <link href="{{ url_for('static', path='index_styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='img/pokeball_icon.png') }}" rel="icon">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+</head>
+<body>
+    <h1>Poké-colección</h1>
+    <form action="/capturar/{{ pokeID }}" method="post" id="formCapturar">
+        <input type="text" name="pokeID" id="pokeID" placeholder="Ingresa nombre o número">
+        <button type="submit">Capturar Pokémon</button>
+    </form>
+    <form action="/pokemon/{{ pokemon_id }}" method="get" id="formGetPokemon">
+        <input type="text" name="pokemon_id " id="pokemon_id " placeholder="Ingresa ID">
+        <button type="submit">Ver Pokémon</button>
+    </form>
+    <form action="/pokemones/" method="get" id="formGetPokemones">
+        <button type="submit">Ver todos los Pokémon</button>
+    </form>
+    <form action="/eliminar/{{ del_pokemon_id }}" method="get" id="formDelPokemon">
+        <input type="text" name="del_pokemon_id " id="del_pokemon_id " placeholder="Ingresa ID">
+        <button type="submit">Eliminar Pokémon</button>
+    </form>
+    <footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+               document.getElementById("formCapturar").addEventListener("submit", function (e) {
+                  var myForm = document.getElementById('formCapturar');
+                  var pokeID = document.getElementById('pokeID').value;
+                  myForm.action = '/capturar/' + pokeID;
+               });
+            });
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+               document.getElementById("formGetPokemon").addEventListener("submit", function (e) {
+                  var myForm = document.getElementById('formGetPokemon');
+                  var pokemon_id = new URLSearchParams(new FormData(myForm)).toString();
+                  myForm.action = '/pokemon/' + pokemon_id;
+               });
+            });
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+               document.getElementById("formGetPokemones").addEventListener("submit", function (e) {
+                  var myForm = document.getElementById('formGetPokemon');
+                  myForm.action = '/pokemones';
+               });
+            });
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+               document.getElementById("formDelPokemon").addEventListener("submit", function (e) {
+                  var myForm = document.getElementById('formDelPokemon');
+                  var del_pokemon_id = new URLSearchParams(new FormData(myForm)).toString();
+                  myForm.action = '/eliminar/' + del_pokemon_id;
+               });
+            });
+        </script>
+    </footer>
+</body>
+</html>

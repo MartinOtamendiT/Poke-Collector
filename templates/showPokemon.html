@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Pokemón</title>
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+    <link href="{{ url_for('static', path='styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='img/pokeball_icon.png') }}" rel="icon">
+</head>
+<body>
+    <container class="pokedex">
+        <div class="left-case">
+            <div class="top-left-out">
+                <div class="top-left">
+                    <div class="blueLight" id="blueLight"></div>
+                    <div class="redLight"></div>
+                    <div class="yellowLight"></div>
+                    <div class="greenLight"></div>
+                </div>
+            </div>
+            <div class="left-center-out">
+                <div class="left-center">
+                    <div class="screen-out">
+                        <div class="screen-out-top">
+                            <div class="redCircle1"></div>
+                            <div class="redCircle2"></div>
+                        </div>
+                        <div class="pokeScreen">
+                            <img src={{pokemon.image}} alt="Pokemon" id="pokeImg">
+                        </div>
+                        <div class="screen-out-bottom">
+                            <div class="redCircle3" id="redLightError"></div>
+                            <img src="{{ url_for('static', path='/img/cuatro-lineas.png')}}" alt="cuatro-lineas">
+                        </div>
+                    </div>
+                    <div class="left-bottom">
+                        <button class="circleButton", onclick=window.location.href='/';>R</button>
+                        <button class="redButton"></button>
+                        <button class="leftBlueButton"></button>
+                        <input type="text" value={{pokemon.name}} id="pokeName" name="pokeName" class="pokename">
+                        <button class="buscarButton"></button>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hinge">
+            <div class="topHinge"></div>
+            <div class="bottomHinge"></div>
+        </div>
+        <div class="right-case">
+            <div class="right-center-out">
+                <div class="right-center">
+                    <div class="rightCenterScreen" id="rightScreen">
+                        <p>
+                            Peso: {{pokemon.weight}} kg.<br>
+                            Altura: {{pokemon.height}} m.<br>
+                            Fecha y hora de captura:<br>{{pokemon.captured_at}}<br>
+                            ID: {{pokemon.id}}
+                        </p>
+                    </div>
+                    <div class="rightBlueButtons">
+                        <button class="rightBlueButton"></button>
+                        <button class="rightBlueButton"></button>
+                        <button class="rightBlueButton"></button>
+                        <button class="rightBlueButton"></button>
+                        <button class="rightBlueButton"></button>
+                        <button class="rightBlueButton"></button>
+                        <button class="rightBlueButton"></button>
+                        <button class="rightBlueButton"></button>
+                        <button class="rightBlueButton"></button>
+                        <button class="rightBlueButton"></button>
+                    </div>
+                    <div class="blackButtons">
+                        <button class="blackButton"></button>
+                        <button class="blackButton"></button>
+                    </div>
+                    <div class="bottomButtons">
+                        <button class="whiteLeftButton">&larr;</button>
+                        <button class="whiteRightButton">&rarr;</button>
+                        <div class="rightYellowLight"></div>
+                    </div>
+                    <div class="bottomScreens">
+                        <div class="bottomScreen" id="pokeNum">No. {{pokemon.pokeID}}</div>
+                        <div class="bottomScreen" id="pokeType">Tipo:<br>&nbsp&nbsp{{pokemon.type}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </container>
+</body>
+</html>

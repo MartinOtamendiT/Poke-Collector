@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Audiowide", sans-serif;
+    font-display: auto;
+}
+body{
+    background-color: #264386;
+    background-image: url("img/pokenNight.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    height: 100%;
+    margin: 0.4vw 22vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+body h1{
+    text-align: center;
+    padding: 1vw;
+    font-size: 3rem;
+    font-family: 'Pokemon Solid', sans-serif;
+    -webkit-text-stroke: 0.1rem #3C5BA4;
+    color: #FFCC03;
+}
+body p{
+    color: white;
+    font-size: 1.5rem;
+    margin: 2rem;
+}
+body form{
+    margin: 2vw;
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: column;
+    align-items: center; 
+    border: 0.8rem double #048CA4;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+body form p{
+    color: #4d4d4d;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+body button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 1rem 3rem;
+    margin: 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+body button:hover{
+    background-image: radial-gradient(circle at top left, white, #28AAFF 40%);
+    box-shadow: 0  0 2.5vw 0.8vw #28AAFF;
+}
