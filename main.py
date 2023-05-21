@@ -163,3 +163,7 @@ async def not_found_exception_handler(request: Request, exc: HTTPException):
         "request": request, 
         "message": "Algo salió mal =("}, 
         status_code=404)
+
+#Corre la aplicación automáticamente.
+if __name__ == '__main__':
+    uvicorn.run(app, host="0.0.0.0", port=80)
