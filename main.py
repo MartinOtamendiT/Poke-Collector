@@ -166,4 +166,4 @@ async def not_found_exception_handler(request: Request, exc: HTTPException):
 
 #Corre la aplicación automáticamente.
 if __name__ == '__main__':
-    uvicorn.run(app, host="0.0.0.0", port=80)
+    uvicorn.run('main:app', host='0.0.0.0', port=8000)
